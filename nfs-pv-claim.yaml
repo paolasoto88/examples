@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: nfs-pvc  
 spec:
-  storageClassName: manual
+  storageClassName: manual   # the Kubernetes control plane looks for a PersistentVolume that satisfies the claim’s requirements. If the control plane finds a suitable PersistentVolume with the same StorageClass, it binds the claim to the volume.
   accessModes:
   - ReadWriteMany      
   resources:
