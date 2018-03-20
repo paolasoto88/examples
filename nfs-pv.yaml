@@ -7,11 +7,11 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 1Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain 
   nfs: 
     path: /home/user1/volume 
     server: 143.129.83.140 
-    readOnly: false 
+    readOnly: false
