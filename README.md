@@ -1,3 +1,3 @@
 # examples
 
-This Repos contains the code for running several examples.
+This Repo contains the code for running several working examples.
