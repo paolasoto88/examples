@@ -1,30 +1,20 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: webserver
+  name: nginx-nfs-pod 
+  labels:
+    name: nginx-nfs-pod
 spec:
-  selector:
-    matchLabels:
-      app: nginx
-  replicas: 2
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - name: webserver
-        image: nginx:alpine
-        ports:
-        - containerPort: 80
-        volumeMounts:
-          - name: hostvol
-            mountPath: /usr/share/nginx/html
-      nodeSelector:
-        role: worker1
-      volumes:
-      - name: hostvol
-        hostPath:
-          nodeSelector: 
-             role: master
-          path: /home/user1/volume
+  containers:
+    - name: nginx-nfs-pod
+      image: nginx:alpine
+      ports:
+        - name: web
+          containerPort: 80
+      volumeMounts:
+        - name: nfsvol 
+          mountPath: /usr/share/nginx/html
+  volumes:
+    - name: nfsvol
+      persistentVolumeClaim:
+        claimName: nfs-pvc
