@@ -19,6 +19,6 @@ spec:
         image: nginx:1.8
         ports:
         - name: web
-          containerPort: 80
+          containerPort: 5000
       nodeSelector:
         nodeType: worker
