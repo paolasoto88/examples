@@ -20,5 +20,3 @@ spec:
         ports:
         - name: web
           containerPort: 5000
-      nodeSelector:
-        nodeType: worker
