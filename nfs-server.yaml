@@ -27,7 +27,7 @@ spec:
         securityContext:
           privileged: true
         volumeMounts:
-          - mountPath: /home/user1/volume
+          - mountPath: /exports
             name: mypvc
       nodeSelector:
         nodeType: master
