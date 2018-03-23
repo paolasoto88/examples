@@ -29,7 +29,10 @@ spec:
         volumeMounts:
           - mountPath: /home/user1/volume
             name: mypvc
+        nodeSelector:
+            nodeType: master
       volumes:
         - name: mypvc
           persistentVolumeClaim:
             claimName: nfs-pvc-provisioning
+           
