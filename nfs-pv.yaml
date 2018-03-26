@@ -4,7 +4,7 @@ metadata:
   name: nfs
 spec:
   capacity:
-    storage: 10Mi
+    storage: 1Gi
   accessModes:
     - ReadWriteMany
   nfs:
