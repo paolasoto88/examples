@@ -31,7 +31,8 @@ spec:
             name: mypvc
       nodeSelector:
         nodeType: master
+      # Mount the volume provisioned by the nfs-pvc-provisioning claim into the /exports folder of the server through the volume name
       volumes:
         - name: mypvc
           persistentVolumeClaim:
-            claimName: nfs-pvc  
+            claimName: nfs-pvc-provisioning
