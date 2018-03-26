@@ -29,10 +29,9 @@ spec:
         volumeMounts:
           - mountPath: /exports
             name: mypvc
-      #nodeSelector:
-      #  nodeType: master
+      nodeSelector:
+        nodeType: master
       volumes:
         - name: mypvc
           persistentVolumeClaim:
-            claimName: nfs-pvc
-           
+            claimName: nfs-pvc  
