@@ -2,16 +2,16 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: nfs-pv
-  labels:
-    type: local
 spec:
   storageClassName: manual
   capacity:
     storage: 10Gi
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain 
-  nfs: 
-    # FIXME: use the NFS server IP to update (kubectl describe services nfs-server)
-    server: 10.244.1.4
-    path: "/"
+  hostPath:
+    path: /volume
+  #nfs: 
+  #  # FIXME: use the NFS server IP to update (kubectl describe services nfs-server)
+  #  server: 10.244.1.4
+  #  path: "/"
