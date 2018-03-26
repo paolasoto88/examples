@@ -1,7 +1,8 @@
+# Create a simple hostPath PV to provision your NFS server
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: nfs-pv
+  name: nfs-pv-provisioning
 spec:
   storageClassName: manual
   capacity:
@@ -11,7 +12,3 @@ spec:
   persistentVolumeReclaimPolicy: Retain 
   hostPath:
     path: /volume
-  #nfs: 
-  #  # FIXME: use the NFS server IP to update (kubectl describe services nfs-server)
-  #  server: 10.244.1.4
-  #  path: "/"
