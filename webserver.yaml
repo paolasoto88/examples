@@ -24,7 +24,7 @@ spec:
         ports:
         - name: web
           containerPort: 80
-        volumes:
-        - name: nfs
-          persistentVolumeClaim:
-            claimName: nfs
+      volumes:
+      - name: nfs
+        persistentVolumeClaim:
+          claimName: nfs
