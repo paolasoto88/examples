@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-file-volume
+spec:
+  capacity:
+    storage: 10Gi
+  storageClassName: local
+  localVolume:
+    path: /volume
