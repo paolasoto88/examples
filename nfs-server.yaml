@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: nfs-server
   labels: 
-    app: nfs
+    role: nfs
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nfs
+      role: nfs
   template:
     metadata:
       labels:
-        app: nfs
+        role: nfs
     spec:
       containers:
       - name: nfs-server
@@ -24,15 +24,15 @@ spec:
             containerPort: 20048
           - name: rpcbind
             containerPort: 111
-        #securityContext:
-        #  privileged: true
+        securityContext:
+          privileged: true
         volumeMounts:
           - mountPath: /exports
             name: mypvc
-      nodeSelector:
-        nodeType: master
+      #nodeSelector:
+      #  nodeType: master
       # Mount the volume provisioned by the nfs-pvc-provisioning claim into the /exports folder of the server through the volume name
       volumes:
         - name: mypvc
           persistentVolumeClaim:
-            claimName: nfs-pvc-provisioning
+            claimName: nfs-pvc-provisioning-demo
