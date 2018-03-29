@@ -2,7 +2,7 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: nfs-pv-provisioning
+  name: nfs-pv-provisioning-demo
 spec:
   storageClassName: local
   capacity:
