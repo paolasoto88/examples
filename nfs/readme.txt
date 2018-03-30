@@ -2,7 +2,7 @@
 kubectl describe nodes user1-c7b75
 
 # Extract the taint's name and remove it. 
-kubectl taint nodes user1-c7b75 <taint_name>-
+kubectl taint nodes user1-c7b75 node-role.kubernetes.io/master:NoSchedule-
 
 # Create the PV to provision the NFS server
 kubectl apply -f examples/nfs/nfs-pv-provisioning.yaml
