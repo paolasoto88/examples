@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: nfs-server
   labels: 
-    role: nfs
+    role: nfs-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      role: nfs
+      role: nfs-server
   template:
     metadata:
       labels:
-        role: nfs
+        role: nfs-server
     spec:
       containers:
       - name: nfs-server
