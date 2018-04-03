@@ -2,6 +2,7 @@
 kubectl describe nodes user1-c7b75
 
 # Extract the taint's name and remove it. 
+kubectl taint nodes --all node-role.kubernetes.io/master-
 kubectl taint nodes user1-c7b75 node-role.kubernetes.io/master:NoSchedule-
 
 # Create the PV to provision the NFS server
@@ -36,7 +37,7 @@ kubectl apply -f examples/nfs/nfs-pvc.yaml
 kubectl get pv
 
 # join more nodes to the cluster with the join command
-kubeadm join 143.129.83.140:6443 --token 7vxo29.n3t8icmxxxzd641k --discovery-token-ca-cert-hash sha256:6302d246d3b9733df6a37ac1799405cbff690b52a14cbbac74fa3c1e6d768e18
+kubeadm join <master_IP>:6443 --token 7vxo29.n3t8icmxxxzd641k --discovery-token-ca-cert-hash sha256:6302d246d3b9733df6a37ac1799405cbff690b52a14cbbac74fa3c1e6d768e18
 
 # deploy the web server
 kubectl apply -f examples/nfs/webserver.yaml
