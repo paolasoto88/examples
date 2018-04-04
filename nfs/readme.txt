@@ -39,11 +39,4 @@ kubectl get pv
 # join more nodes to the cluster with the join command
 kubeadm join <master_IP>:6443 --token 7vxo29.n3t8icmxxxzd641k --discovery-token-ca-cert-hash sha256:6302d246d3b9733df6a37ac1799405cbff690b52a14cbbac74fa3c1e6d768e18
 
-# deploy the web server
-kubectl apply -f examples/nfs/webserver.yaml
-
-# check that the web server is deployed on other nodes
-kubectl get pods -owide
-
-# expose the web server with a service
-kubectl apply -f examples/nfs/webserver-svc.yaml
+# then you are ready to deploy applications withs a NFS server :)
