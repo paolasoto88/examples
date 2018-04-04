@@ -5,7 +5,8 @@ metadata:
 spec:
   replicas: 1
   selector:
-    name: tensorflow-ps
+    matchLabels:
+      name: tensorflow-ps
   template:
     metadata:
       labels:
