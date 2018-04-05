@@ -183,7 +183,7 @@ spec:
         #    alpha.kubernetes.io/nvidia-gpu: 1
         #  limits:
         #    alpha.kubernetes.io/nvidia-gpu: 1
-        #volumeMounts:
+        volumeMounts:
         #- mountPath: /dev/nvidia0
         #  name: nvidia0
         #- mountPath: /dev/nvidiactl
