@@ -13,7 +13,7 @@ An example of model parallelism in tensorflow, i.e., spreading a (huge) model ov
 # Prepare dataset.
 ########################################################################################################################
 
-mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+mnist = input_data.read_data_sets("/tfdata/data02/MNIST_data/", one_hot=True)
 
 
 FLAGS = None
