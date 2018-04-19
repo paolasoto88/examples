@@ -1,0 +1,11 @@
+#!/bin/bash
+#script to do teardown the cluster
+
+nodenames=$(kubectl get nodes -o jsonpath="{.items[*].metadata.name}" -l role=other)
+
+for i in $nodenames; do
+    $(kubectl drain $i --delete-local-data --force --ignore-daemonsets)
+    $(kubectl delete node $i)
+done
+
+kubeadm reset
