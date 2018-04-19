@@ -1,0 +1,24 @@
+#!/bin/bash
+# script to start a cluster with kubeadm
+# first, make sure you are the root user with sudo su
+
+echo "Hi there!. The cluster is initializing, please wait a moment and zip from your cup of tea"
+# let's initialize the cluster
+kubeadm init
+
+# let's prepare the environment to run kubectl
+echo "The environment is getting ready to run kubectl, another moment, another zip ;)"
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+
+# Install a pod network add-on so that pods communicate with each other. 
+echo "A network add-on will be installed to have communication betwwen pods"
+sysctl net.bridge.bridge-nf-call-iptables=1
+export kubever=$(kubectl version | base64 | tr -d '\n')
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
+
+# confirm that the pod network add-on is working by checking that the kube-dns pod is Running
+echo "Your cluster is ready, please run kubeadm join with the respective token"
+kubectl get pods --all-namespaces
