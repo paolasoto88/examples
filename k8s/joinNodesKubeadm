@@ -5,4 +5,4 @@
 sudo su
 
 echo "Hi there! Soon you will be joining a Kubernetes cluster, have fun!"
-kubeadm join
+kubeadm join abcdef.0123456789abcdef
