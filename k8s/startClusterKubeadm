@@ -1,6 +1,7 @@
 #!/bin/bash
 # script to start a cluster with kubeadm
 # first, make sure you are the root user with sudo su
+sudo su
 
 echo "Hi there!. The cluster is initializing, please wait a moment and zip from your cup of tea"
 # let's initialize the cluster
