@@ -1,1 +1,8 @@
+#!/bin/bash
+# script to start a cluster with kubeadm
+# first, make sure you are the root user with sudo su
+
+sudo su
+
 echo "Hi there! Soon you will be joining a Kubernetes cluster, have fun!"
+kubeadm join
