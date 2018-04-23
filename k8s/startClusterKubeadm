@@ -5,7 +5,7 @@ sudo su
 
 echo "Hi there!. The cluster is initializing, please wait a moment and zip from your cup of tea"
 # let's initialize the cluster
-kubeadm init --token abcdef.0123456789abcdef --token-ttl 0
+kubeadm init --token abcdef.0123456789abcdef --token-ttl 0 --node-name master
 
 # let's prepare the environment to run kubectl
 echo "The environment is getting ready to run kubectl, another moment, another zip ;)"
@@ -15,7 +15,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
 # Install a pod network add-on so that pods communicate with each other. 
-echo "A network add-on will be installed to have communication betwwen pods"
+echo "A network add-on will be installed to have communication between pods"
 sysctl net.bridge.bridge-nf-call-iptables=1
 export kubever=$(kubectl version | base64 | tr -d '\n')
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
@@ -24,4 +24,7 @@ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
 echo "Your cluster is ready, please run kubeadm join with the respective token"
 kubectl get pods --all-namespaces
 
+# untaint your master node so applications can run on it
+echo "Your master node is being untainted"
 kubectl taint nodes --all node-role.kubernetes.io/master-
+
