@@ -1,3 +1,8 @@
+#!/bin/bash
+# script to start a cluster with kubeadm
+# first, make sure you are the root user with sudo su
+#sudo su
+
 # Create the PV to provision the NFS server
 kubectl apply -f examples/nfs/nfs-pv-provisioning.yaml
 kubectl apply -f examples/nfs/nfs-pvc-provisioning.yaml 
