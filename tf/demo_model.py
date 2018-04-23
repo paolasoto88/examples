@@ -29,7 +29,7 @@ def main(_):
     if FLAGS.job_name == "worker":
 
         # Assigns ops to the local worker by default.
-        with tf.device("/job:worker/task:{}".format(FLAGS.task_index)):
+        with tf.device("/job:worker/task:{}".format(0)):
             # Build model.
             x = tf.placeholder(tf.float32, [None, 784], name="input")
             y_ = tf.placeholder(tf.float32, [None, 10], name="output")
@@ -39,7 +39,7 @@ def main(_):
             b1 = tf.Variable(tf.zeros([256]), name="b1")
             y1 = tf.nn.relu(tf.matmul(x, W1) + b1)
 
-        with tf.device("/job:worker/task:{}".format(FLAGS.task_index)):
+        with tf.device("/job:worker/task:{}".format(1)):
             # Model.
             W2 = tf.Variable(tf.truncated_normal([256, 10], stddev=0.1), name="w2")
             b2 = tf.Variable(tf.zeros([10]), name="b2")
@@ -114,7 +114,3 @@ if __name__ == "__main__":
 
     FLAGS, unparsed = parser.parse_known_args()
     tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
-
-
-
-
