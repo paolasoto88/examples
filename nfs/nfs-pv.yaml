@@ -9,5 +9,5 @@ spec:
     - ReadWriteMany
   nfs:
     # FIXME: use the right IP
-    server: nfs-server.build.svc.cluster.local
+    server: nfs-server.default.svc.cluster.local
     path: "/"
