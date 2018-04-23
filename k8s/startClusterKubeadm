@@ -23,3 +23,5 @@ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
 # confirm that the pod network add-on is working by checking that the kube-dns pod is Running
 echo "Your cluster is ready, please run kubeadm join with the respective token"
 kubectl get pods --all-namespaces
+
+kubectl taint nodes --all node-role.kubernetes.io/master-
