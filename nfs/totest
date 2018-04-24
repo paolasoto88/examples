@@ -1,0 +1,4 @@
+
+
+
+kubectl get svc nfs-server -o=jsonpath='{.spec.clusterIP}'
