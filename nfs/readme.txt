@@ -18,16 +18,16 @@ sudo apt-get install nfs-common
 # run the NFS server
 kubectl apply -f examples/nfs/nfs-server.yaml
 
+# check that the NFS server is running
+kubectl get pods
+
 # expose the server with a service
 kubectl apply -f examples/nfs/nfs-server-svc.yaml
 
 # check that the service point to the correct endpoints of the NFS server
 kubectl describe svc nfs-server
 
-# check that the NFS server is running
-kubectl get pods
-
-# use the NFS server IP to update nfs-pv.yaml and create the dynamic provisioning 
+# create the dynamic provisioning 
 kubectl apply -f examples/nfs/nfs-pv.yaml
 
 # bound the PVC to the recently created PV
