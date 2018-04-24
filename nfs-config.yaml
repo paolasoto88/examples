@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example-configmap
+  namespace: default
+data:
+  server:
+    "nfs-server.default.svc.cluster.local:2049,nfs-server.default.svc.cluster.local:20048,nfs-server.default.svc.cluster.local:111"
