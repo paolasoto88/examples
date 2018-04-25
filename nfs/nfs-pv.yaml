@@ -9,7 +9,7 @@ spec:
     - ReadWriteMany
   nfs:
     # using a fixed IP address
-    server: 10.109.131.215
+    #server: 10.109.131.215
     # using a dynamic service name
-    #server: nfs-server.default.svc.cluster.local
+    server: nfs-server.default.svc.cluster.local
     path: "/"
