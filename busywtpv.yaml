@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  namespace: default
+spec:
+  volumes:
+  -  name: pv-storage
+     persistentVolumeClaim:
+       claimName: nfs
+  containers:
+  - name: busybox
+    image: busybox
+    volumeMounts:
+    - mountPath: "/storage"
+      name: pv-storage
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+  restartPolicy: Always
