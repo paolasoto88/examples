@@ -5,7 +5,7 @@ metadata:
   name: nfs-server
 spec:
   # set a static IP address
-  #clusterIP: 10.109.131.215
+  clusterIP: 10.109.131.215
   ports:
     - name: nfs
       port: 2049
